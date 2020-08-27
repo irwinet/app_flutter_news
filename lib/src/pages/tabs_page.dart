@@ -1,3 +1,6 @@
+import 'package:app_flutter_news/src/pages/tab1_page.dart';
+import 'package:app_flutter_news/src/pages/tab2_page.dart';
+import 'package:app_flutter_news/src/services/news_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +25,7 @@ class _Navigation extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final navigationModel = Provider.of<_NavigationModel>(context);
+    // final newsService = Provider.of<NewsService>(context);
 
     return BottomNavigationBar(
       currentIndex: navigationModel.pageCurrent,
@@ -46,12 +50,8 @@ class _Pages extends StatelessWidget {
       controller: navigationModel.pageController,
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
-        Container(
-          color: Colors.red,
-        ),
-        Container(
-          color: Colors.green,
-        ),
+        Tab1Page(),
+        Tab2Page(),
       ],
     );
   }
